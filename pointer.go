@@ -32,3 +32,17 @@ func DerefOr[T any](p *T, def T) T {
 	}
 	return *p
 }
+
+// NilIfEmpty returns nil if the value is empty, otherwise returns a pointer to the value.
+//
+// Example:
+//
+//	s := ""
+//	p := NilIfEmpty(s) // p is nil
+func NilIfEmpty[T comparable](v T) *T {
+	if v == *new(T) {
+		return nil
+	}
+
+	return &v
+}
