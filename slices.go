@@ -2,6 +2,18 @@ package au
 
 import "fmt"
 
+// Prepend adds a value to the beginning of a slice and returns the new slice.
+// It is similar to append but adds the element at the start instead of the end.
+//
+// Example:
+//
+//	numbers := []int{1, 2, 3}
+//	prepended := Prepend(numbers, 0)
+//	// prepended is []int{0, 1, 2, 3}
+func Prepend[T any, S ~[]T](slice S, value T) S {
+	return append([]T{value}, slice...)
+}
+
 // Map applies a function to each element of a slice and returns a new slice containing the results.
 //
 // Example:
