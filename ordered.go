@@ -1,6 +1,8 @@
 package au
 
-import "cmp"
+import (
+	"cmp"
+)
 
 // Min returns the smaller of two ordered values.
 // If the values are equal, returns the first value.
