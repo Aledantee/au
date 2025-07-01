@@ -33,6 +33,20 @@ func DerefOr[T any](p *T, def T) T {
 	return *p
 }
 
+// DerefOrZero returns the value pointed to by p, or the zero value of T if p is nil.
+//
+// Example:
+//
+//	var p *int
+//	v := DerefOrZero(p) // v is 0
+func DerefOrZero[T any](p *T) T {
+	if p == nil {
+		return *new(T)
+	}
+
+	return *p
+}
+
 // NilIfEmpty returns nil if the value is empty, otherwise returns a pointer to the value.
 //
 // Example:
